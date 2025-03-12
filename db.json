@@ -1,0 +1,900 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": "NK-AF1-07-WHT",
+      "name": "Nike Air Force 1 '07",
+      "description": "Classic sneakers with a timeless design, perfect for everyday wear.",
+      "brand": "Nike",
+      "categories": ["Sneakers", "Casual"],
+      "price": 2000.0,
+      "discountPrice": 1950.0,
+      "isBestselling": true,
+      "sizes": [
+        { "size": 38, "available": true },
+        { "size": 39, "available": false },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true }
+      ],
+      "gender": "unisex",
+      "stockCount": 25,
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/33533fe2-1157-4001-896e-1803b30659c8/AIR+FORCE+1+%2707.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/82aa97ed-98bf-4b6f-9d0b-31a9f907077b/AIR+FORCE+1+%2707.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ef92df87-6098-4fa5-bc88-7107492febcf/AIR+FORCE+1+%2707.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/120a31b0-efa7-41c7-9a84-87b1e56ab9c3/AIR+FORCE+1+%2707.png"
+      ],
+      "reviews": [
+        {
+          "userId": 1,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 12,
+          "date": "2025-02-06T14:30:00Z"
+        },
+        {
+          "userId": 2,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 4,
+          "date": "2025-02-05T10:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "sku": "CV-CTAS-02-BLK",
+      "name": "Converse Chuck Taylor All Star",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Converse",
+      "categories": ["Sneakers"],
+      "price": 2000.0,
+      "discountPrice": 1800.0,
+      "isBestselling": true,
+      "sizes": [
+        { "size": 38, "available": true },
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw313679bf/images/e_08/M7650_E_08X1.jpg?sw=406",
+        "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwfbd1102a/images/c_08/M7650_C_08X1.jpg?sw=406",
+        "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw717da01b/images/g_08/M7650_G_08X1.jpg?sw=406",
+        "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw129bdef9/images/f_08/M7650_F_08X1.jpg?sw=406",
+        "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw211760a7/images/b_08/M7650_B_08X1.jpg?sw=406"
+      ],
+      "reviews": [
+        {
+          "userId": 3,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 4,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "sku": "VN-OS-03-BLK",
+      "name": "Vans Old Skool",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Vans",
+      "categories": ["Sneakers"],
+      "price": 1000.0,
+      "discountPrice": 950.0,
+      "isBestselling": true,
+      "sizes": [
+        { "size": 38, "available": true },
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://images.vans.com/is/image/Vans/VN000D3H_Y28_ALT1?wid=1600&hei=1984&fmt=jpeg&qlt=90&resMode=sharp2&op_usm=0.9,1.7,8,0",
+        "https://images.vans.com/is/image/Vans/VN000D3H_Y28_HERO?wid=800&hei=1004&fmt=jpeg&qlt=50&resMode=sharp2&op_usm=0.9,1.5,8,0",
+        "https://images.vans.com/is/image/Vans/VN000D3H_Y28_ALT2?wid=800&hei=1004&fmt=jpeg&qlt=50&resMode=sharp2&op_usm=0.9,1.5,8,0",
+        "https://images.vans.com/is/image/Vans/VN000D3H_Y28_ALT3?wid=1600&hei=1984&fmt=jpeg&qlt=90&resMode=sharp2&op_usm=0.9,1.7,8,0",
+        "https://assets.olapic-cdn.com/media/n/3/y/n3ynu85/normal.jpg"
+      ],
+      "reviews": [
+        {
+          "userId": 5,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 6,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "sku": "AD-UB22-04-GRY",
+      "name": "Adidas Ultraboost 22",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Adidas",
+      "categories": ["Sports"],
+      "price": 1200.0,
+      "discountPrice": 1180.0,
+      "isBestselling": true,
+      "sizes": [
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true },
+        { "size": 45, "available": true }
+      ],
+      "gender": "men",
+      "stockCount": 100,
+      "images": [
+        "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/e455dff588be4164a40dad7900d3b244_9366/Ultraboost_22_Shoes_Grey_GX5460_01_standard.jpg",
+        "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/ea19c904109540debd24ad7900d3c11b_9366/Ultraboost_22_Shoes_Grey_GX5460_02_standard_hover.jpg",
+        "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/044123e187084bde80b9ad7900d3c834_9366/Ultraboost_22_Shoes_Grey_GX5460_03_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5c0884937571460a896ead7900d3ed05_9366/Ultraboost_22_Shoes_Grey_GX5460_09_standard.jpg",
+        "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/6dedede0b5694f478b6dad7900d3b98e_9366/Ultraboost_22_Shoes_Grey_GX5460_06_standard.jpg"
+      ],
+      "reviews": [
+        {
+          "userId": 101,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 102,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "sku": "NK-IRN4-05-WHT",
+      "name": "Nike InfinityRN 4",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Nike",
+      "categories": ["Sports"],
+      "price": 1350.0,
+      "discountPrice": 1250.0,
+      "isBestselling": false,
+      "sizes": [
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true },
+        { "size": 45, "available": true }
+      ],
+      "gender": "women",
+      "stockCount": 100,
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/df6a994a-bc85-4637-94bf-3ae4af43a8fe/NIKE+REACTX+INFINITY+RUN+4.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0b5ac8b5-3b8e-472f-8bc6-0247e26475e1/NIKE+REACTX+INFINITY+RUN+4.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c202635f-694b-4c17-ba7a-a14a9f13b3ff/NIKE+REACTX+INFINITY+RUN+4.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/523c0c33-790c-427b-a71e-99928bd08614/NIKE+REACTX+INFINITY+RUN+4.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e5963772-a8e0-49bd-ba12-a596a2a94f06/NIKE+REACTX+INFINITY+RUN+4.png"
+      ],
+      "reviews": [
+        {
+          "userId": 7,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 8,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "sku": "NB-FCPV5-06-BLK",
+      "name": "FuelCell Propel v5",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "New Balance",
+      "categories": ["Sports"],
+      "price": 1250.0,
+      "discountPrice": 1180.0,
+      "isBestselling": false,
+      "sizes": [
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true },
+        { "size": 45, "available": true }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://nb.scene7.com/is/image/NB/mfcprcb5_nb_05_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/mfcprcb5_nb_02_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/mfcprcb5_nb_03_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/mfcprcb5_nb_04_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/mfcprcb5_nb_06_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600"
+      ],
+      "reviews": [
+        {
+          "userId": 9,
+          "username": "john_doe",
+          "rating": 4,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 10,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "sku": "CH-CW6-07-BRN",
+      "name": "Colville 6\" Waterproof Insulated Lace Up",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Chippewa",
+      "categories": ["Boots"],
+      "price": 1180.0,
+      "discountPrice": 1160.0,
+      "isBestselling": false,
+      "sizes": [
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true },
+        { "size": 45, "available": true }
+      ],
+      "gender": "men",
+      "stockCount": 100,
+      "images": [
+        "https://bhsh.widen.net/content/ayij8yg7gx/jpeg/72125-002.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/la84leseiy/jpeg/72125-001.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/o2vwxbmdxb/jpeg/72125-004.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/admxqaz3q8/jpeg/72125-006.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/ecnfdpiocp/jpeg/72125-007.jpg?w=700&h=700&quality=80&keep=s&crop=no"
+      ],
+      "reviews": [
+        {
+          "userId": 11,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 12,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "sku": "TB-P6B-08-BRN",
+      "name": "Timberland Premium 6-inch Boot",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Timberland",
+      "categories": ["Boots"],
+      "price": 1180.0,
+      "discountPrice": 1160.0,
+      "isBestselling": false,
+      "sizes": [
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true },
+        { "size": 45, "available": true }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://assets.timberland.com/images/t_img/f_auto,h_650,w_650/e_sharpen:60/dpr_2.0/v1718945576/TB110061713-HERO/Mens-Timberland-Premium-6Inch-Waterproof-Boot.png",
+        "https://assets.timberland.com/images/t_img/f_auto,h_650,w_650/e_sharpen:60/dpr_2.0/v1726166779/TB110061713-ALT2/Mens-Timberland-Premium-6Inch-Waterproof-Boot.jpg",
+        "https://assets.timberland.com/images/t_img/f_auto,h_650,w_650/e_sharpen:60/dpr_2.0/v1726166759/TB110061713-ALT7/Mens-Timberland-Premium-6Inch-Waterproof-Boot.jpg",
+        "https://assets.timberland.com/images/t_img/f_auto,h_650,w_650/e_sharpen:60/dpr_2.0/v1726166773/TB110061713-ALT4/Mens-Timberland-Premium-6Inch-Waterproof-Boot.jpg",
+        "https://assets.timberland.com/images/t_img/f_auto,h_650,w_650/e_sharpen:60/dpr_2.0/v1726166766/TB110061713-ALT8/Mens-Timberland-Premium-6Inch-Waterproof-Boot.jpg"
+      ],
+      "reviews": [
+        {
+          "userId": 13,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 14,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "sku": "CH-CW15-09-SNK",
+      "name": "Cottonwood 15\" Women's Snake",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Chippewa",
+      "categories": ["Boots"],
+      "price": 1180.0,
+      "discountPrice": 1160.0,
+      "isBestselling": false,
+      "sizes": [
+        { "size": 39, "available": true },
+        { "size": 40, "available": true },
+        { "size": 41, "available": true },
+        { "size": 42, "available": true },
+        { "size": 43, "available": true },
+        { "size": 44, "available": true },
+        { "size": 45, "available": true }
+      ],
+      "gender": "women",
+      "stockCount": 100,
+      "images": [
+        "https://bhsh.widen.net/content/h78jzehqpe/jpeg/SN6914-002.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/ckvfvdgiin/jpeg/SN6914-001.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/ya99ug5sxh/jpeg/SN6914-004.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/60g3ap8flt/jpeg/SN6914-005.jpg?w=700&h=700&quality=80&keep=s&crop=no",
+        "https://bhsh.widen.net/content/yzwxnjru9p/jpeg/SN6914-009.jpg?w=700&h=700&quality=80&keep=s&crop=no"
+      ],
+      "reviews": [
+        {
+          "userId": 15,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 16,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "sku": "GC-HL-10-BLK",
+      "name": "Gucci Horsebit Loafers",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Gucci",
+      "categories": ["Official"],
+      "price": 1100.0,
+      "discountPrice": 1050.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400/1702979103/307929_BLM00_1000_002_100_0000_Light-Mens-Horsebit-1953-loafer.jpg",
+        "https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400/1659723303/307929_BLM00_1000_001_100_0000_Light-Mens-Horsebit-1953-loafer.jpg",
+        "https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400/1659723312/307929_BLM00_1000_009_100_0000_Light-Mens-Horsebit-1953-loafer.jpg",
+        "https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400/1659723314/307929_BLM00_1000_012_100_0000_Light-Mens-Horsebit-1953-loafer.jpg",
+        "https://media.gucci.com/style/DarkGray_Center_0_0_2400x2400/1659723317/307929_BLM00_1000_015_100_0000_Light-Mens-Horsebit-1953-loafer.jpg"
+      ],
+      "reviews": [
+        {
+          "userId": 17,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 18,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "sku": "ND-FBL-11-BRN",
+      "name": "Foster Bit Loafer (Men)",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "NORDSTORM",
+      "categories": ["Official"],
+      "price": 1100.0,
+      "discountPrice": 1050.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "men",
+      "stockCount": 100,
+      "images": [
+        "https://n.nordstrommedia.com/it/f1c570a8-a8e9-4fa1-9468-5208adba1ff8.jpeg?crop=pad&trim=color&w=1950&h=2990",
+        "https://n.nordstrommedia.com/it/07a4fa2d-c8ac-471d-93f9-6dfb56859f9f.jpeg?crop=pad&trim=color&w=1950&h=2990",
+        "https://n.nordstrommedia.com/it/1aafb2a1-3965-416d-9dfe-71c1e9f65e42.jpeg?crop=pad&trim=color&w=1950&h=2990",
+        "https://n.nordstrommedia.com/it/07a4fa2d-c8ac-471d-93f9-6dfb56859f9f.jpeg?crop=pad&trim=color&w=1950&h=2990",
+        "https://n.nordstrommedia.com/it/f1c570a8-a8e9-4fa1-9468-5208adba1ff8.jpeg?crop=pad&trim=color&w=1950&h=2990"
+      ],
+      "reviews": [
+        {
+          "userId": 19,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 20,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "sku": "FF-FER-12-BLK",
+      "name": "Ferragamo",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "FARFETCH",
+      "categories": ["Official"],
+      "price": 1300.0,
+      "discountPrice": 1250.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "women",
+      "stockCount": 100,
+      "images": [
+        "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149068_1000.jpg",
+        "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149069_1000.jpg",
+        "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149070_1000.jpg",
+        "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149067_1000.jpg",
+        "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149069_2048.jpg"
+      ],
+      "reviews": [
+        {
+          "userId": 21,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 22,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "sku": "AD-AS-13-BLK",
+      "name": "Adidas Adilette Slides",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Adidas",
+      "categories": ["Slippers"],
+      "price": 1150.0,
+      "discountPrice": 1140.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "men",
+      "stockCount": 100,
+      "images": [
+        "https://assets.adidas.com/images/w_1880,f_auto,q_auto/6f15d53a308445798fc2a8080114a8fd_9366/BA7130_01_standard.jpg",
+        "https://assets.adidas.com/images/w_1880,f_auto,q_auto/3f0d4340430e4a128b22a66600ebc245_9366/BA7130_02_standard_hover.jpg",
+        "https://assets.adidas.com/images/w_1880,f_auto,q_auto/f9feb7ca0705443787f2a8080114d3c1_9366/BA7130_04_standard.jpg",
+        "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2254160cd9db45b1bc62a66600ebbc20_9366/BA7130_03_standard.jpg",
+        "https://assets.adidas.com/images/w_1880,f_auto,q_auto/f431adfb001a41598933a8080114b48b_9366/BA7130_06_standard.jpg"
+      ],
+      "reviews": [
+        {
+          "userId": 23,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 24,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "sku": "NB-FFRS-14-BLK",
+      "name": "Fresh Foam RCVRY Slide",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "New Balance",
+      "categories": ["Slippers"],
+      "price": 1350.0,
+      "discountPrice": 1250.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://nb.scene7.com/is/image/NB/rcvrysk1_nb_05_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/rcvrysk1_nb_02_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/rcvrysk1_nb_03_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/rcvrysk1_nb_04_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600",
+        "https://nb.scene7.com/is/image/NB/rcvrysk1_nb_06_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600"
+      ],
+      "reviews": [
+        {
+          "userId": 25,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 26,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "sku": "BK-BE-15-BRN",
+      "name": "Barbados Essentials",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "BIRKENSTOCK",
+      "categories": ["Slippers"],
+      "price": 1450.0,
+      "discountPrice": 1140.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "women",
+      "stockCount": 100,
+      "images": [
+        "https://www.birkenstock.com/dw/image/v2/BDXC_PRD/on/demandware.static/-/Sites-master-catalog/default/dw43e998a5/1015398/1015398.jpg?sw=848&sh=848&strip=false",
+        "https://www.birkenstock.com/dw/image/v2/BDXC_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7af0ce29/1015398/1015398_sole.jpg?sw=848&sh=848&strip=false",
+        "https://www.birkenstock.com/dw/image/v2/BDXC_PRD/on/demandware.static/-/Sites-master-catalog/default/dw11bb34c3/1015398/1015398_top.jpg?sw=848&sh=848&strip=false",
+        "https://www.birkenstock.com/dw/image/v2/BDXC_PRD/on/demandware.static/-/Sites-master-catalog/default/dwdc0b9d60/1015398/1015398_side.jpg?sw=848&sh=848&strip=false",
+        "https://www.birkenstock.com/dw/image/v2/BDXC_PRD/on/demandware.static/-/Sites-master-catalog/default/dwdc0b9d60/1015398/1015398_side.jpg?sw=848&sh=848&strip=false"
+      ],
+      "reviews": [
+        {
+          "userId": 27,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 28,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "sku": "PU-RSX-16-BLK",
+      "name": "Puma RS-X Bold JR",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "brand": "Puma",
+      "categories": ["Children"],
+      "price": 1120.0,
+      "discountPrice": 1100.0,
+      "isBestselling": false,
+      "sizes": [
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
+      ],
+      "gender": "unisex",
+      "stockCount": 100,
+      "images": [
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/372806/01/fnd/PNA/fmt/png/RS-X-Bold-Sneakers-JR",
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/372806/01/sv01/fnd/PNA/fmt/png/RS-X-Bold-Sneakers-JR",
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/372806/01/bv/fnd/PNA/fmt/png/RS-X-Bold-Sneakers-JR",
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/372806/01/sv02/fnd/PNA/fmt/png/RS-X-Bold-Sneakers-JR",
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/372806/01/sv03/fnd/PNA/fmt/png/RS-X-Bold-Sneakers-JR"
+      ],
+      "reviews": [
+        {
+          "userId": 29,
+          "username": "john_doe",
+          "rating": 5,
+          "comment": "Amazing quality and very comfortable! Highly recommend.",
+          "helpfulVotes": 0,
+          "date": "2025-02-06T00:00:00Z"
+        },
+        {
+          "userId": 30,
+          "username": "jane_smith",
+          "rating": 4,
+          "comment": "Great shoes, but they run slightly big.",
+          "helpfulVotes": 0,
+          "date": "2025-02-05T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}
