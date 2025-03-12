@@ -29,7 +29,7 @@ const useProductStore = create(
         set({ isLoading: true, error: null });
 
         try {
-          const response = await fetch("https://my-server-kvf0.onrender.com");
+          const response = await fetch("https://my-server-kvf0.onrender.com/products");
 
           if (!response.ok) {
             throw new Error("Failed to fetch products");
