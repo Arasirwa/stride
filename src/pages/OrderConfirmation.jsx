@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  CheckCircle,
-  ShoppingBag,
   CreditCard,
   Phone,
-  AlertCircle,
   ChevronRight,
   CheckIcon,
   XIcon,
 } from "lucide-react";
 import useProductStore from "../stores/productStore";
+import OrderConfirmationHeader from "../components/OrderConfirmationHeader";
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
@@ -26,20 +24,7 @@ const OrderConfirmation = () => {
   });
 
   if (!currentOrder) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-center bg-secondary-50 px-4">
-        <ShoppingBag size={48} className="text-secondary-400" />
-        <h2 className="text-2xl font-semibold text-secondary-700 mt-4">
-          No order to confirm
-        </h2>
-        <button
-          className="mt-6 bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
-          onClick={() => navigate("/shop")}
-        >
-          Go Back to Shop
-        </button>
-      </div>
-    );
+    return <OrderConfirmation />;
   }
 
   const handlePayment = () => {
@@ -337,15 +322,7 @@ const OrderConfirmation = () => {
   return (
     <div className="min-h-screen bg-secondary-50 px-4 py-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <CheckCircle size={48} className="text-success-500 mx-auto" />
-          <h1 className="text-2xl font-bold text-secondary-900 mt-4">
-            Confirm Your Order
-          </h1>
-          <p className="text-secondary-600 mt-2">
-            Review your order and select your preferred payment method.
-          </p>
-        </div>
+        <OrderConfirmationHeader />
 
         {paymentStatus ? (
           <div className="max-w-md mx-auto">{renderPaymentStatus()}</div>
