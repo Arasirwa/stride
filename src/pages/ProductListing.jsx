@@ -103,11 +103,8 @@ const ProductListing = () => {
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >
-              <option value="featured">Featured</option>
-              <option value="newest">Newest Arrivals</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="bestselling">Bestsellers</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-secondary-700">
               <ChevronDown size={16} />
@@ -441,14 +438,11 @@ const ProductListing = () => {
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
                 >
-                  <option value="featured">Featured</option>
-                  <option value="newest">Newest Arrivals</option>
                   <option value="price-low">Price: Low to High</option>
                   <option value="price-high">Price: High to Low</option>
-                  <option value="bestselling">Bestsellers</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-secondary-700">
-                  <ChevronDown size={16} />
+                  <ChevronDown size={3} />
                 </div>
               </div>
             </div>

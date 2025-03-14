@@ -6,10 +6,7 @@ import ProductListing from "./pages/ProductListing";
 import Cart from "./pages/Cart";
 import Profile from "./Profile/Profile";
 import ProductDetailsPage from "./pages/ProductDetails";
-import OrderConfirmation from './pages/OrderConfirmation';
-import OrderSuccess from './pages/OrderSuccess';
-import OrderFailed from "./pages/OrderFailed";
-
+import OrderConfirmation from "./pages/OrderConfirmation";
 export default function App() {
   return (
     <Routes>
@@ -20,8 +17,6 @@ export default function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
-        <Route path="/order-success" element={<OrderSuccess />} />
-        <Route path="/order-failed"  element={<OrderFailed/>} />
         <Route />
       </Route>
     </Routes>

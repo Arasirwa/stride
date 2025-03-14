@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Bell, X, AlertTriangle, CheckCircle, Package, Truck, Clock } from "lucide-react";
-import useProductStore from "../stores/productStore";
+import useOrderStore from "../stores/OrdersStore";
 
 // Define notification types with their respective icons and colors
 const notificationTypes = {
@@ -31,8 +31,11 @@ const notificationTypes = {
 };
 
 const NotificationsSection = () => {
-  const { notifications, clearNotifications } = useProductStore();
+  const { notifications, clearNotifications } = useOrderStore();
   const [filter, setFilter] = useState("all");
+
+  console.log(notifications);
+  
 
   // Get notification type from the content
   const getNotificationType = (notification) => {

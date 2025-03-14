@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
 import useProductStore from "../stores/productStore";
+import useCartStore from "../stores/cartStore";
+import useOrderStore from "../stores/OrdersStore";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const searchQuery = useProductStore((state) => state.searchQuery);
   const setSearchQuery = useProductStore((state) => state.setSearchQuery);
-  const cart = useProductStore((state) => state.cart);
-  const notifications = useProductStore((state) => state.notifications)
+  const cart = useCartStore((state) => state.cart);
+  const notifications = useOrderStore((state) => state.notifications)
   const navigate = useNavigate();
   const location = useLocation();
 

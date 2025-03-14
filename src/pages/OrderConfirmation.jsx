@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   CreditCard,
   Phone,
@@ -7,12 +6,14 @@ import {
   CheckIcon,
   XIcon,
 } from "lucide-react";
-import useProductStore from "../stores/productStore";
 import OrderConfirmationHeader from "../components/OrderConfirmationHeader";
+import useOrderStore from "../stores/OrdersStore";
+import Processing from "../status-screens/Processing";
+import Success from "../status-screens/Success";
+import Failed from "../status-screens/Failed";
 
 const OrderConfirmation = () => {
-  const navigate = useNavigate();
-  const { currentOrder, markOrderAsPaid } = useProductStore();
+  const { currentOrder, markOrderAsPaid } = useOrderStore();
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null); // null, 'processing', 'success', 'failed'
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -36,15 +37,9 @@ const OrderConfirmation = () => {
 
       if (isSuccess) {
         setPaymentStatus("success");
-
-        // ✅ Mark order as paid & clear cart
         markOrderAsPaid(currentOrder.id);
-
-        setTimeout(() => navigate("/order-success"), 2000);
       } else {
         setPaymentStatus("failed");
-        // Optional: Redirect to a failure page
-        // setTimeout(() => navigate("/order-failed"), 2000);
       }
     }, 2000);
   };
@@ -257,61 +252,14 @@ const OrderConfirmation = () => {
   const renderPaymentStatus = () => {
     switch (paymentStatus) {
       case "processing":
-        return (
-          <div className="p-6 bg-white rounded-lg shadow-md text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600 mx-auto"></div>
-            <h3 className="text-lg font-medium text-secondary-900 mt-4">
-              Processing Payment
-            </h3>
-            <p className="text-secondary-600 mt-2">
-              Please wait while we process your payment...
-            </p>
-          </div>
-        );
+        return <Processing />;
 
       case "success":
-        return (
-          <div className="p-6 bg-white rounded-lg shadow-md text-center">
-            <div className="mx-auto w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-              <CheckIcon size={24} className="text-green-600" />
-            </div>
-            <h3 className="text-lg font-medium text-secondary-900 mt-4">
-              Payment Successful!
-            </h3>
-            <p className="text-secondary-600 mt-2">
-              Your order has been placed successfully.
-            </p>
-            <p className="text-secondary-600 mt-1">
-              Order ID: {currentOrder.id}
-            </p>
-            <p className="text-secondary-600 mt-1">
-              You will be redirected shortly...
-            </p>
-          </div>
-        );
+        return <Success />;
 
       case "failed":
         return (
-          <div className="p-6 bg-white rounded-lg shadow-md text-center">
-            <div className="mx-auto w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-              <XIcon size={24} className="text-red-600" />
-            </div>
-            <h3 className="text-lg font-medium text-secondary-900 mt-4">
-              Payment Failed
-            </h3>
-            <p className="text-secondary-600 mt-2">
-              Your payment could not be processed.
-            </p>
-            <p className="text-secondary-600 mt-1">
-              Please try again or use a different payment method.
-            </p>
-            <button
-              onClick={() => setPaymentStatus(null)}
-              className="mt-4 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
-            >
-              Try Again
-            </button>
-          </div>
+          <Failed setPaymentStatus={setPaymentStatus}/>
         );
 
       default:

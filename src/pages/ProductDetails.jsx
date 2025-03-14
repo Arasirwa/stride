@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useProductStore from "../stores/productStore";
+import useCartStore from "../stores/cartStore";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
-  const { products, fetchProducts, addToCart } = useProductStore();
+  const { products, fetchProducts } = useProductStore();
+  const {addToCart} = useCartStore()
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -91,7 +93,6 @@ const ProductDetailsPage = () => {
   // Handle add to cart
   const handleAddToCart = () => {
     if (!selectedSize) return;
-    const { addToCart } = useProductStore.getState();
     addToCart(product, selectedSize, quantity);
     setShowAddedToCart(true);
     setTimeout(() => setShowAddedToCart(false), 500);

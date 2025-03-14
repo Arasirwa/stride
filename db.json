@@ -8,7 +8,7 @@
       "brand": "Nike",
       "categories": ["Sneakers", "Casual"],
       "price": 2000.0,
-      "discountPrice": 1950.0,
+      "discountPrice": 2000.0,
       "isBestselling": true,
       "sizes": [
         { "size": 38, "available": true },
