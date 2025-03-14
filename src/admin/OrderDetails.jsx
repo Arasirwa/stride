@@ -8,7 +8,7 @@ import {
   Clock, 
   Edit, 
   AlertTriangle,
-  Send,
+  CreditCard,
   Phone
 } from "lucide-react";
 
@@ -16,8 +16,7 @@ const OrderDetails = ({ orderId, onBack }) => {
   const { orders, updateOrderStatus, addOrderNote } = useOrderStore();
   const [isUpdating, setIsUpdating] = useState(false);
   const [newStatus, setNewStatus] = useState("");
-  const [showContactForm, setShowContactForm] = useState(false);
-  const [contactMessage, setContactMessage] = useState("");
+  const [statusNote, setStatusNote] = useState("");
   const [note, setNote] = useState("");
   const [showNoteForm, setShowNoteForm] = useState(false);
 
@@ -46,8 +45,9 @@ const OrderDetails = ({ orderId, onBack }) => {
 
   const handleStatusUpdate = () => {
     if (newStatus && newStatus !== order.status) {
-      updateOrderStatus(orderId, newStatus);
+      updateOrderStatus(orderId, newStatus, statusNote);
       setIsUpdating(false);
+      setStatusNote("");
     }
   };
   
@@ -59,27 +59,22 @@ const OrderDetails = ({ orderId, onBack }) => {
     }
   };
 
-  const handleSendMessage = () => {
-    if (contactMessage.trim()) {
-      // In a real app, this would send a message to the customer
-      alert(`Message would be sent to customer: ${contactMessage}`);
-      setContactMessage("");
-      setShowContactForm(false);
-    }
-  };
-
   const getStatusIcon = (status) => {
     switch (status) {
       case "Pending Payment":
         return <Clock size={20} className="text-yellow-500" />;
       case "Payment Confirmed":
-        return <CheckCircle size={20} className="text-green-500" />;
-      case "Shipped":
+        return <CreditCard size={20} className="text-green-500" />;
+      case "Processing":
         return <Package size={20} className="text-blue-500" />;
+      case "Shipped":
+        return <Truck size={20} className="text-blue-500" />;
       case "Out for Delivery":
         return <Truck size={20} className="text-purple-500" />;
       case "Delivered":
         return <CheckCircle size={20} className="text-green-500" />;
+      case "Cancelled":
+        return <AlertTriangle size={20} className="text-red-500" />;
       default:
         return <Clock size={20} className="text-gray-500" />;
     }
@@ -100,6 +95,33 @@ const OrderDetails = ({ orderId, onBack }) => {
     "Cancelled"
   ];
 
+  // Get payment details for display
+  const paymentDetails = order.paymentMethod ? (
+    <div className="p-4 bg-green-50 rounded-lg border border-green-200 mb-4">
+      <div className="flex items-center">
+        <CreditCard size={18} className="text-green-600 mr-2" />
+        <h4 className="font-medium text-green-800">Payment Information</h4>
+      </div>
+      <div className="mt-2">
+        <p className="text-sm text-green-700">
+          <span className="font-medium">Method:</span> {order.paymentMethod}
+        </p>
+        {order.paymentId && (
+          <p className="text-sm text-green-700">
+            <span className="font-medium">Transaction ID:</span> {order.paymentId}
+          </p>
+        )}
+        <p className="text-sm text-green-700">
+          <span className="font-medium">Date:</span> {
+            formatDate(
+              order.statusHistory.find(h => h.status === "Payment Confirmed")?.timestamp
+            )
+          }
+        </p>
+      </div>
+    </div>
+  ) : null;
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -115,49 +137,6 @@ const OrderDetails = ({ orderId, onBack }) => {
         </div>
         
         <div>
-          <button
-            onClick={() => setShowContactForm(!showContactForm)}
-            className="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 mr-2 flex items-center"
-          >
-            <Phone size={16} className="mr-2" />
-            Contact Customer
-          </button>
-        </div>
-      </div>
-
-      {/* Contact Customer Form */}
-      {showContactForm && (
-        <div className="bg-white rounded-lg shadow-md p-4 border border-blue-200">
-          <h3 className="font-medium text-lg mb-2">Contact Customer</h3>
-          <textarea
-            value={contactMessage}
-            onChange={(e) => setContactMessage(e.target.value)}
-            placeholder="Write your message to the customer..."
-            className="w-full p-2 border rounded-md h-32 mb-3"
-          ></textarea>
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={() => setShowContactForm(false)}
-              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleSendMessage}
-              disabled={!contactMessage.trim()}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 flex items-center"
-            >
-              <Send size={16} className="mr-2" />
-              Send Message
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Order Status with Timeline */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="text-lg font-medium">Order Status</h3>
           <span
             className={`px-3 py-1 text-sm font-semibold rounded-full 
             ${
@@ -173,6 +152,14 @@ const OrderDetails = ({ orderId, onBack }) => {
             {order.status}
           </span>
         </div>
+      </div>
+
+      {/* Order Status with Timeline */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h3 className="text-lg font-medium mb-4">Order Status</h3>
+
+        {/* Payment details banner */}
+        {paymentDetails}
 
         {/* Timeline */}
         <div className="relative pb-8">
@@ -190,6 +177,11 @@ const OrderDetails = ({ orderId, onBack }) => {
                   <p className="text-sm text-gray-500">
                     {formatDate(statusChange.timestamp)}
                   </p>
+                  {statusChange.notes && (
+                    <p className="text-sm text-gray-600 mt-1 italic">
+                      {statusChange.notes}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -200,33 +192,50 @@ const OrderDetails = ({ orderId, onBack }) => {
         <div className="mt-6 pt-6 border-t border-gray-200">
           <h4 className="text-md font-medium mb-3">Update Order Status</h4>
           {isUpdating ? (
-            <div className="flex items-center space-x-3">
-              <select
-                value={newStatus}
-                onChange={(e) => setNewStatus(e.target.value)}
-                className="border rounded p-2 flex-grow"
-              >
-                {possibleStatuses.map((status) => (
-                  <option key={status} value={status}>
-                    {status}
-                  </option>
-                ))}
-              </select>
-              <button
-                onClick={handleStatusUpdate}
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              >
-                Update
-              </button>
-              <button
-                onClick={() => {
-                  setIsUpdating(false);
-                  setNewStatus(order.status);
-                }}
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-              >
-                Cancel
-              </button>
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm text-gray-600 mb-1">New Status</label>
+                <select
+                  value={newStatus}
+                  onChange={(e) => setNewStatus(e.target.value)}
+                  className="border rounded p-2 w-full"
+                >
+                  {possibleStatuses.map((status) => (
+                    <option key={status} value={status}>
+                      {status}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm text-gray-600 mb-1">Note (Optional)</label>
+                <textarea
+                  value={statusNote}
+                  onChange={(e) => setStatusNote(e.target.value)}
+                  placeholder="Add a note about this status change"
+                  className="border rounded p-2 w-full h-20"
+                />
+              </div>
+              
+              <div className="flex space-x-3">
+                <button
+                  onClick={handleStatusUpdate}
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Update Status
+                </button>
+                <button
+                  onClick={() => {
+                    setIsUpdating(false);
+                    setNewStatus(order.status);
+                    setStatusNote("");
+                  }}
+                  className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           ) : (
             <button
@@ -246,20 +255,27 @@ const OrderDetails = ({ orderId, onBack }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <p className="text-sm text-gray-600">Name</p>
-            <p className="font-medium">John Doe</p>
+            <p className="font-medium">{order.customerInfo?.name || "Not available"}</p>
           </div>
           <div>
             <p className="text-sm text-gray-600">Email</p>
-            <p className="font-medium">john.doe@example.com</p>
+            <p className="font-medium">{order.customerInfo?.email || "Not available"}</p>
           </div>
           <div>
             <p className="text-sm text-gray-600">Phone</p>
-            <p className="font-medium">+254 700 123 456</p>
+            <p className="font-medium">{order.customerInfo?.phone || "Not available"}</p>
           </div>
           <div>
             <p className="text-sm text-gray-600">Shipping Address</p>
-            <p className="font-medium">123 Main St, Nairobi, Kenya</p>
+            <p className="font-medium">{order.customerInfo?.address || "Not available"}</p>
           </div>
+        </div>
+        
+        <div className="mt-4 flex justify-end">
+          <button className="flex items-center text-blue-600 hover:text-blue-800 text-sm">
+            <Phone size={16} className="mr-1" />
+            Contact Customer
+          </button>
         </div>
       </div>
 
@@ -412,7 +428,7 @@ const OrderDetails = ({ orderId, onBack }) => {
                     {formatDate(note.timestamp)}
                   </span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">By: Admin</p>
+                <p className="text-xs text-gray-500 mt-1">By: {note.author || "Admin"}</p>
               </div>
             ))}
           </div>
@@ -421,7 +437,7 @@ const OrderDetails = ({ orderId, onBack }) => {
         )}
       </div>
 
-      {/* Issues & Alerts */}
+      {/* Payment Overdue Alert */}
       {(order.status === "Pending Payment" && 
         new Date() - new Date(order.statusHistory[0].timestamp) > 1000 * 60 * 60 * 24) && (
         <div className="bg-red-50 rounded-lg shadow-md p-6 border border-red-200">
@@ -439,6 +455,7 @@ const OrderDetails = ({ orderId, onBack }) => {
                 <button 
                   onClick={() => {
                     setNewStatus("Cancelled");
+                    setStatusNote("Payment not received within 24 hours");
                     setIsUpdating(true);
                   }}
                   className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"

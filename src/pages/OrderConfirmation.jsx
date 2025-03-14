@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CreditCard, Phone, ChevronRight } from "lucide-react";
 import OrderConfirmationHeader from "../components/OrderConfirmationHeader";
 import useOrderStore from "../stores/OrdersStore";
@@ -31,14 +31,9 @@ const OrderConfirmation = () => {
   });
   
   // Redirect to cart if no order details
-  useEffect(() => {
-    if (!orderDetails) {
-      navigate('/cart');
-    }
-  }, [orderDetails, navigate]);
-
   if (!orderDetails) {
-    return <div className="text-center py-10">Loading...</div>;
+    navigate('/cart');
+    return null;
   }
 
   const handlePayment = () => {
@@ -49,24 +44,33 @@ const OrderConfirmation = () => {
       const isSuccess = Math.random() < 0.9;
 
       if (isSuccess) {
-        // Only store order on successful payment
-        const orderId = Date.now().toString();
+        // Generate transaction ID
+        const paymentId = Math.random().toString(36).substring(2, 10).toUpperCase();
         
-        // Store order in your order store
+        // Determine payment method name
+        let methodName = "Card";
+        if (paymentMethod === "mpesa") methodName = "M-Pesa";
+        if (paymentMethod === "airtel") methodName = "Airtel Money";
+        
+        // Only create the order on successful payment
+        const orderId = Date.now();
+        
+        // Place the order with payment details
         placeOrder({
           id: orderId,
           items: orderDetails.items,
           totalPrice: orderDetails.totalPrice,
           shipping: orderDetails.shipping,
           tax: orderDetails.tax,
-          status: "Paid",
-          statusHistory: [{ status: "Paid", date: new Date().toISOString() }],
+          paymentMethod: methodName,
+          paymentId: paymentId,
+          initialStatus: "Payment Confirmed" // Start with confirmed payment status
         });
         
         // Show success message
         setPaymentStatus("success");
         
-        // Clear cart after successful order
+        // Clear cart after successful order and payment
         clearCart();
       } else {
         setPaymentStatus("failed");
@@ -124,7 +128,8 @@ const OrderConfirmation = () => {
 
             <button
               onClick={handlePayment}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+              disabled={!phoneNumber || phoneNumber.length < 10}
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               Complete M-Pesa Payment
             </button>
@@ -157,7 +162,7 @@ const OrderConfirmation = () => {
                 <li>Go to Airtel Money on your phone</li>
                 <li>Select "Make Payments"</li>
                 <li>Select "Pay Bill"</li>
-                <li>Enter Business Name: ShopName</li>
+                <li>Enter Business Name: STRIDE</li>
                 <li>Enter Reference Number: {Date.now().toString().slice(-6)}</li>
                 <li>Enter Amount: KSH {orderDetails.totalPrice.toFixed(2)}</li>
                 <li>Enter your Airtel Money PIN</li>
@@ -167,7 +172,8 @@ const OrderConfirmation = () => {
 
             <button
               onClick={handlePayment}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+              disabled={!phoneNumber || phoneNumber.length < 10}
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               Complete Airtel Money Payment
             </button>
@@ -250,7 +256,8 @@ const OrderConfirmation = () => {
 
             <button
               onClick={handlePayment}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+              disabled={!cardDetails.number || !cardDetails.name || !cardDetails.expiry || !cardDetails.cvv}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
             >
               Pay KSH {orderDetails.totalPrice.toFixed(2)}
             </button>
