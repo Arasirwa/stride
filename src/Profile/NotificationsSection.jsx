@@ -1,58 +1,39 @@
 import { useState } from "react";
-import { Bell, X, AlertTriangle, CheckCircle, Package, Truck, Clock } from "lucide-react";
+import { Bell, X, AlertTriangle, CheckCircle, Package, Truck, Clock, RefreshCcw, XCircle } from "lucide-react";
 import useOrderStore from "../stores/OrdersStore";
 
 // Define notification types with their respective icons and colors
 const notificationTypes = {
-  order: {
-    icon: Package,
-    bgColor: "bg-blue-50",
-    iconColor: "text-blue-500",
-    borderColor: "border-blue-100"
-  },
-  payment: {
-    icon: CheckCircle,
-    bgColor: "bg-green-50",
-    iconColor: "text-green-500",
-    borderColor: "border-green-100"
-  },
-  shipping: {
-    icon: Truck,
-    bgColor: "bg-purple-50",
-    iconColor: "text-purple-500", 
-    borderColor: "border-purple-100"
-  },
-  alert: {
-    icon: AlertTriangle,
-    bgColor: "bg-yellow-50",
-    iconColor: "text-yellow-500",
-    borderColor: "border-yellow-100"
-  }
+  order: { icon: Package, bgColor: "bg-blue-50", iconColor: "text-blue-500", borderColor: "border-blue-100" },
+  payment: { icon: CheckCircle, bgColor: "bg-green-50", iconColor: "text-green-500", borderColor: "border-green-100" },
+  shipping: { icon: Truck, bgColor: "bg-purple-50", iconColor: "text-purple-500", borderColor: "border-purple-100" },
+  alert: { icon: AlertTriangle, bgColor: "bg-yellow-50", iconColor: "text-yellow-500", borderColor: "border-yellow-100" },
+  cancelled: { icon: XCircle, bgColor: "bg-red-50", iconColor: "text-red-500", borderColor: "border-red-100" },
+  returned: { icon: RefreshCcw, bgColor: "bg-gray-50", iconColor: "text-gray-500", borderColor: "border-gray-100" },
 };
 
 const NotificationsSection = () => {
-  const { notifications, clearNotifications } = useOrderStore();
+  const { notifications, clearNotifications, removeNotification } = useOrderStore();
   const [filter, setFilter] = useState("all");
 
-  console.log(notifications);
-  
-
-  // Get notification type from the content
+  // Categorize notification messages
   const getNotificationType = (notification) => {
-    if (!notification?.message) return "order"; // Ensure message exists
+    if (!notification?.message) return "order"; // Default to order-related notifications
     const message = notification.message.toLowerCase();
 
     if (message.includes("payment") || message.includes("paid") || message.includes("confirmed")) return "payment";
     if (message.includes("ship") || message.includes("delivery") || message.includes("shipped")) return "shipping";
+    if (message.includes("cancel")) return "cancelled";
+    if (message.includes("return")) return "returned";
     if (message.includes("alert") || message.includes("warning") || message.includes("attention")) return "alert";
-    
+
     return "order";
   };
 
-  // Format relative time
+  // Format time for display
   const getRelativeTime = (timestamp) => {
     if (!timestamp) return "Unknown time"; // Handle missing timestamps
-    
+
     const now = new Date();
     const notificationTime = new Date(timestamp);
     const diffMs = now - notificationTime;
@@ -70,22 +51,25 @@ const NotificationsSection = () => {
     return notificationTime.toLocaleDateString();
   };
 
-  // Filter notifications
-  const filteredNotifications = filter === "all" 
-    ? notifications 
+  // Apply selected filter
+  const filteredNotifications = filter === "all"
+    ? notifications
     : notifications.filter(n => getNotificationType(n) === filter);
 
-  // Count by type
+  // Count notifications per category
   const counts = {
     all: notifications.length,
     order: notifications.filter(n => getNotificationType(n) === "order").length,
     payment: notifications.filter(n => getNotificationType(n) === "payment").length,
     shipping: notifications.filter(n => getNotificationType(n) === "shipping").length,
     alert: notifications.filter(n => getNotificationType(n) === "alert").length,
+    cancelled: notifications.filter(n => getNotificationType(n) === "cancelled").length,
+    returned: notifications.filter(n => getNotificationType(n) === "returned").length,
   };
 
   return (
     <div>
+      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center">
           <h3 className="text-xl font-semibold">Notifications</h3>
@@ -107,14 +91,14 @@ const NotificationsSection = () => {
         )}
       </div>
 
-      {/* Filter tabs */}
+      {/* Filter Tabs */}
       {notifications.length > 0 && (
         <div className="flex overflow-x-auto pb-2 mb-4 space-x-2">
           {Object.keys(counts)
             .filter(type => counts[type] > 0 || type === "all")
             .map(type => {
               const IconComponent = type === "all" ? Bell : notificationTypes[type]?.icon;
-              
+
               return (
                 <button
                   key={type}
@@ -140,6 +124,7 @@ const NotificationsSection = () => {
         </div>
       )}
 
+      {/* Notifications List */}
       {filteredNotifications.length === 0 ? (
         <div className="py-16 text-center bg-gray-50 rounded-xl border border-gray-100">
           <Bell size={48} className="mx-auto text-gray-300 mb-4" />
@@ -174,24 +159,15 @@ const NotificationsSection = () => {
 
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
-                    <p className="font-medium text-secondary-800">
-                      {notification.message}
-                    </p>
-                    {notification.timestamp && (
-                      <span className="text-xs text-gray-500 flex items-center whitespace-nowrap ml-2">
-                        <Clock size={12} className="mr-1" />
-                        {getRelativeTime(notification.timestamp)}
-                      </span>
-                    )}
+                    <p className="font-medium text-secondary-800">{notification.message}</p>
+                    <button onClick={() => removeNotification(index)} className="text-gray-400 hover:text-gray-600">
+                      <X size={14} />
+                    </button>
                   </div>
-
-                  {notification.orderId && (
-                    <div className="mt-1 flex items-center">
-                      <p className="text-xs text-gray-600">
-                        Order ID: <span className="font-medium">{notification.orderId}</span>
-                      </p>
-                    </div>
-                  )}
+                  <span className="text-xs text-gray-500 flex items-center whitespace-nowrap mt-1">
+                    <Clock size={12} className="mr-1" />
+                    {getRelativeTime(notification.timestamp)}
+                  </span>
                 </div>
               </div>
             );

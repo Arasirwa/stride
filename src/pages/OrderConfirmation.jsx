@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import {
-  CreditCard,
-  Phone,
-  ChevronRight,
-  CheckIcon,
-  XIcon,
-} from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { CreditCard, Phone, ChevronRight } from "lucide-react";
 import OrderConfirmationHeader from "../components/OrderConfirmationHeader";
 import useOrderStore from "../stores/OrdersStore";
 import Processing from "../status-screens/Processing";
 import Success from "../status-screens/Success";
 import Failed from "../status-screens/Failed";
+import { useLocation, useNavigate } from "react-router-dom";
+import MasterLogo from "../assets/mastercard.svg";
+import PaypalLogo from "../assets/paypal.svg"
+import visa from "../assets/visa.svg"
+import useCartStore from "../stores/cartStore";
 
 const OrderConfirmation = () => {
-  const { currentOrder, markOrderAsPaid } = useOrderStore();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { placeOrder } = useOrderStore();
+  const { clearCart } = useCartStore();
+  
+  // Get order details from location state (passed from Cart)
+  const orderDetails = location.state;
+  
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null); // null, 'processing', 'success', 'failed'
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -23,9 +29,16 @@ const OrderConfirmation = () => {
     expiry: "",
     cvv: "",
   });
+  
+  // Redirect to cart if no order details
+  useEffect(() => {
+    if (!orderDetails) {
+      navigate('/cart');
+    }
+  }, [orderDetails, navigate]);
 
-  if (!currentOrder) {
-    return <OrderConfirmation />;
+  if (!orderDetails) {
+    return <div className="text-center py-10">Loading...</div>;
   }
 
   const handlePayment = () => {
@@ -36,8 +49,25 @@ const OrderConfirmation = () => {
       const isSuccess = Math.random() < 0.9;
 
       if (isSuccess) {
+        // Only store order on successful payment
+        const orderId = Date.now().toString();
+        
+        // Store order in your order store
+        placeOrder({
+          id: orderId,
+          items: orderDetails.items,
+          totalPrice: orderDetails.totalPrice,
+          shipping: orderDetails.shipping,
+          tax: orderDetails.tax,
+          status: "Paid",
+          statusHistory: [{ status: "Paid", date: new Date().toISOString() }],
+        });
+        
+        // Show success message
         setPaymentStatus("success");
-        markOrderAsPaid(currentOrder.id);
+        
+        // Clear cart after successful order
+        clearCart();
       } else {
         setPaymentStatus("failed");
       }
@@ -85,15 +115,8 @@ const OrderConfirmation = () => {
                 <li>Select "Lipa na M-Pesa"</li>
                 <li>Select "Pay Bill"</li>
                 <li>Enter Business Number: 174379</li>
-                <li>Enter Account Number: {currentOrder.id}</li>
-                <li>
-                  Enter Amount: KSH{""}
-                  {currentOrder.items.reduce(
-                    (total, item) =>
-                      total + item.quantity * item.product.discountPrice,
-                    0
-                  )}
-                </li>
+                <li>Enter Account Number: {Date.now().toString().slice(-6)}</li>
+                <li>Enter Amount: Ksh {orderDetails.totalPrice.toFixed(2)}</li>
                 <li>Enter your M-Pesa PIN</li>
                 <li>Confirm the transaction</li>
               </ol>
@@ -135,15 +158,8 @@ const OrderConfirmation = () => {
                 <li>Select "Make Payments"</li>
                 <li>Select "Pay Bill"</li>
                 <li>Enter Business Name: ShopName</li>
-                <li>Enter Reference Number: {currentOrder.id}</li>
-                <li>
-                  Enter Amount: KSH{" "}
-                  {currentOrder.items.reduce(
-                    (total, item) =>
-                      total + item.quantity * item.product.discountPrice,
-                    0
-                  )}
-                </li>
+                <li>Enter Reference Number: {Date.now().toString().slice(-6)}</li>
+                <li>Enter Amount: KSH {orderDetails.totalPrice.toFixed(2)}</li>
                 <li>Enter your Airtel Money PIN</li>
                 <li>Confirm the transaction</li>
               </ol>
@@ -222,26 +238,21 @@ const OrderConfirmation = () => {
               </div>
             </div>
 
-            <div className="flex gap-2 mb-6">
-              <img src="/api/placeholder/40/24" alt="Visa" className="h-6" />
+            <div className="flex gap-5 mb-6">
+              <img src={visa} alt="Visa" className="h-6" />
               <img
-                src="/home/arasirwa/webDevelopment/React/shoe-shop/src/assets/mastercard.svg"
+                src={MasterLogo}
                 alt="Mastercard"
                 className="h-6"
               />
-              <img src="/api/placeholder/40/24" alt="Amex" className="h-6" />
+              <img src={PaypalLogo} alt="Paypal" className="h-6" />
             </div>
 
             <button
               onClick={handlePayment}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
             >
-              Pay KSH{" "}
-              {currentOrder.items.reduce(
-                (total, item) =>
-                  total + item.quantity * item.product.discountPrice,
-                0
-              )}
+              Pay KSH {orderDetails.totalPrice.toFixed(2)}
             </button>
           </>
         )}
@@ -258,9 +269,7 @@ const OrderConfirmation = () => {
         return <Success />;
 
       case "failed":
-        return (
-          <Failed setPaymentStatus={setPaymentStatus}/>
-        );
+        return <Failed setPaymentStatus={setPaymentStatus} />;
 
       default:
         return null;
@@ -283,7 +292,7 @@ const OrderConfirmation = () => {
                   Order Summary
                 </h2>
                 <ul className="mt-4 space-y-4">
-                  {currentOrder.items.map((item) => (
+                  {orderDetails.items.map((item) => (
                     <li
                       key={item.id}
                       className="flex justify-between border-b pb-2"
@@ -292,22 +301,33 @@ const OrderConfirmation = () => {
                         {item.product.name} × {item.quantity}
                       </span>
                       <span className="text-secondary-900 font-medium">
-                        Ksh: {item.product.discountPrice * item.quantity}
+                        Ksh: {(item.product.discountPrice * item.quantity).toFixed(2)}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-4 pt-4 border-t flex justify-between">
                   <span className="text-lg font-semibold text-secondary-900">
+                    Shipping:
+                  </span>
+                  <span className="text-lg font-bold text-secondary-900">
+                    Ksh: {orderDetails.shipping.toFixed(2)}
+                  </span>
+                </div>
+                <div className="mt-4 pt-4 border-t flex justify-between">
+                  <span className="text-lg font-semibold text-secondary-900">
+                    Tax:
+                  </span>
+                  <span className="text-lg font-bold text-secondary-900">
+                    Ksh: {orderDetails.tax.toFixed(2)}
+                  </span>
+                </div>
+                <div className="mt-4 pt-4 border-t flex justify-between">
+                  <span className="text-lg font-semibold text-secondary-900">
                     Total:
                   </span>
                   <span className="text-lg font-bold text-secondary-900">
-                    Ksh:{" "}
-                    {currentOrder.items.reduce(
-                      (total, item) =>
-                        total + item.quantity * item.product.discountPrice,
-                      0
-                    )}
+                    Ksh: {orderDetails.totalPrice.toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -369,4 +389,5 @@ const OrderConfirmation = () => {
     </div>
   );
 };
+
 export default OrderConfirmation;

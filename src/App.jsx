@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Profile from "./Profile/Profile";
 import ProductDetailsPage from "./pages/ProductDetails";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import AdminPanel from "./pages/AdminPanel";
 export default function App() {
   return (
     <Routes>
@@ -17,7 +18,7 @@ export default function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
-        <Route />
+        <Route path="admin-panel" element={<AdminPanel/>} />
       </Route>
     </Routes>
   );

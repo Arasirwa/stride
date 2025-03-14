@@ -172,12 +172,12 @@ const OrdersSection = () => {
                             </div>
                             <div className="text-right">
                               <p className="font-semibold text-secondary-800">
-                                ${item.product.discountPrice.toFixed(2)}
+                                ksh: {item.product.discountPrice.toFixed(2)}
                               </p>
-                              {item.product.originalPrice >
-                                item.product.discountPrice && (
+                              {item.product.totalPrice >
+                                item.product.totalPrice && (
                                 <p className="text-xs text-gray-500 line-through">
-                                  ${item.product.originalPrice.toFixed(2)}
+                                  ksh {item.product.originalPrice.toFixed(2)}
                                 </p>
                               )}
                             </div>
@@ -191,40 +191,20 @@ const OrdersSection = () => {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex justify-between text-sm text-gray-600 mb-2">
                       <span>Subtotal</span>
-                      <span>
-                        ksh:{" "}
-                        {order.items
-                          .reduce(
-                            (total, item) =>
-                              total +
-                              item.product.discountPrice * item.quantity,
-                            0
-                          )
-                          .toFixed(2)}
-                      </span>
+                      <span>ksh: {order.totalPrice}</span>
                     </div>
                     <div className="flex justify-between text-sm text-gray-600 mb-2">
                       <span>Shipping</span>
-                      <span>ksh: 300</span>
+                      <span>{order.shipping}</span>
                     </div>
                     <div className="flex justify-between text-sm text-gray-600 mb-2">
                       <span>Tax</span>
-                      <span>ksh: 250</span>
+                      <span> {order.tax} </span>
                     </div>
                     <div className="border-t my-2"></div>
                     <div className="flex justify-between font-semibold text-secondary-800">
                       <span>Total</span>
-                      <span>
-                        ksh:{" "}
-                        {(
-                          order.items.reduce(
-                            (total, item) =>
-                              total +
-                              item.product.discountPrice * item.quantity,
-                            0
-                          ) + 9.21
-                        ).toFixed(2)}
-                      </span>
+                      <span>ksh: {order.totalPrice}</span>
                     </div>
                   </div>
                 </div>

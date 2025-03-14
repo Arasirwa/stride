@@ -9,22 +9,25 @@ const useOrderStore = create(
       currentOrder: null,
       notifications: [],
 
-      placeOrder: () => {
-        set((state) => {
-          const newOrder = {
-            id: Date.now(),
-            items: useCartStore.getState().cart,
-            status: "Pending Payment",
-            statusHistory: [
-              { status: "Pending Payment", timestamp: new Date() },
-            ],
-          };
+      placeOrder: ({ items, totalPrice, shipping, tax }) => {
+        if (items.length === 0) return;
 
-          return {
-            orders: [...state.orders, newOrder],
-            currentOrder: newOrder,
-          };
-        });
+        const newOrder = {
+          id: Date.now(),
+          items,
+          totalPrice, 
+          shipping,
+          tax,
+          status: "Pending Payment",
+          statusHistory: [{ status: "Pending Payment", timestamp: new Date() }],
+        };
+
+        set((state) => ({
+          orders: [...state.orders, newOrder],
+          currentOrder: newOrder,
+        }));
+
+        // useCartStore.getState().clearCart(); 
       },
 
       updateOrderStatus: (orderId, status) =>
