@@ -10,7 +10,7 @@
         "Sneakers"
       ],
       "price": 2000,
-      "discountPrice": 2000,
+      "discountPrice": 1800,
       "isBestselling": true,
       "sizes": [
         {
@@ -19,7 +19,7 @@
         },
         {
           "size": 39,
-          "available": false
+          "available": true
         },
         {
           "size": 40,
@@ -832,14 +832,14 @@
       "id": "13",
       "sku": "AD-AS-13-BLK",
       "name": "Adidas Adilette Slides",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
+      "description": "they are awsome and comfortable!!",
       "brand": "Adidas",
       "categories": [
         "Slippers"
       ],
-      "price": 1150,
-      "discountPrice": 1140,
-      "isBestselling": false,
+      "price": 2000,
+      "discountPrice": 1900,
+      "isBestselling": true,
       "sizes": [
         {
           "size": 42,
@@ -851,6 +851,10 @@
         },
         {
           "size": 44,
+          "available": true
+        },
+        {
+          "size": 40,
           "available": true
         }
       ],

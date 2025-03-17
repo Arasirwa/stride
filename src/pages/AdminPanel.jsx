@@ -15,14 +15,12 @@ import {
   Users, 
   LogOut, 
   ShoppingBag, 
-  BarChart,
-  RefreshCw
+  BarChart
 } from 'lucide-react';
 
 const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [selectedOrderId, setSelectedOrderId] = useState(null);
-  const [refreshing, setRefreshing] = useState(false);
   const { orders, notifications, clearNotifications } = useOrderStore();
   const { fetchProducts } = useProductManagementStore();
   const navigate = useNavigate();
@@ -36,14 +34,6 @@ const AdminPanel = () => {
   const handleOrderSelect = (orderId) => {
     setSelectedOrderId(orderId);
     setActiveTab('orderDetails');
-  };
-  
-  const handleRefresh = () => {
-    setRefreshing(true);
-    fetchProducts();
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 1000);
   };
   
   const navigation = [
@@ -239,16 +229,6 @@ const AdminPanel = () => {
         {/* Main content */}
         <div className="flex flex-col flex-1 overflow-hidden">
           <main className="flex-1 relative overflow-y-auto focus:outline-none">
-            {/* Refresh button */}
-            <div className="fixed top-4 right-4 z-50">
-              <button
-                onClick={handleRefresh}
-                className={`p-2 bg-white rounded-full shadow-md hover:bg-gray-100 ${refreshing ? 'animate-spin' : ''}`}
-                title="Refresh data"
-              >
-                <RefreshCw size={20} className="text-blue-600" />
-              </button>
-            </div>
           
             <div className="py-6 md:py-12">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
