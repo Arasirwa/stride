@@ -7,8 +7,7 @@
       "description": "Classic sneakers with a timeless design, perfect for everyday wear.",
       "brand": "Nike",
       "categories": [
-        "Sneakers",
-        "Casual"
+        "Sneakers"
       ],
       "price": 2000,
       "discountPrice": 2000,
@@ -32,7 +31,7 @@
         }
       ],
       "gender": "unisex",
-      "stockCount": 25,
+      "stockCount": 90,
       "images": [
         "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png",
         "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/33533fe2-1157-4001-896e-1803b30659c8/AIR+FORCE+1+%2707.png",
@@ -139,7 +138,7 @@
         "Sneakers"
       ],
       "price": 1000,
-      "discountPrice": 950,
+      "discountPrice": 990,
       "isBestselling": true,
       "sizes": [
         {

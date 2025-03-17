@@ -1,3 +1,4 @@
+// src/admin/ProductManager.jsx
 import { useState, useEffect } from 'react';
 import { 
   Search, 
@@ -29,6 +30,7 @@ const ProductsManager = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(null);
+  const [productToEdit, setProductToEdit] = useState(null);
   
   const categories = getCategories();
   const brands = getBrands();
@@ -65,6 +67,12 @@ const ProductsManager = () => {
     }
   };
   
+  // Edit product handler
+  const handleEditProduct = (product) => {
+    setProductToEdit(product);
+    setShowAddModal(true);
+  };
+  
   return (
     <div>
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
@@ -97,7 +105,10 @@ const ProductsManager = () => {
           </button>
           
           <button
-            onClick={() => setShowAddModal(true)}
+            onClick={() => {
+              setProductToEdit(null);
+              setShowAddModal(true);
+            }}
             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
           >
             <Plus size={16} className="mr-2" />
@@ -195,7 +206,10 @@ const ProductsManager = () => {
               Get started by adding your first product to your store.
             </p>
             <button
-              onClick={() => setShowAddModal(true)}
+              onClick={() => {
+                setProductToEdit(null);
+                setShowAddModal(true);
+              }}
               className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 inline-flex items-center"
             >
               <Plus size={16} className="mr-2" />
@@ -222,21 +236,28 @@ const ProductsManager = () => {
           </div>
         ) : viewMode === 'list' ? (
           <ProductList 
-            products={filteredProducts} 
+            products={products}
+            filteredProducts={filteredProducts}
             onDelete={handleDeleteConfirm}
+            onEdit={handleEditProduct}
           />
         ) : (
           <ProductGrid 
             products={filteredProducts}
-            onDelete={handleDeleteConfirm} 
+            onDelete={handleDeleteConfirm}
+            onEdit={handleEditProduct}
           />
         )}
       </div>
       
-      {/* Add Product Modal */}
+      {/* Add/Edit Product Modal */}
       {showAddModal && (
         <ProductModal 
-          onClose={() => setShowAddModal(false)}
+          product={productToEdit}
+          onClose={() => {
+            setShowAddModal(false);
+            setProductToEdit(null);
+          }}
         />
       )}
       
