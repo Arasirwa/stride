@@ -1,20 +1,35 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "sku": "NK-AF1-07-WHT",
       "name": "Nike Air Force 1 '07",
       "description": "Classic sneakers with a timeless design, perfect for everyday wear.",
       "brand": "Nike",
-      "categories": ["Sneakers", "Casual"],
-      "price": 2000.0,
-      "discountPrice": 2000.0,
+      "categories": [
+        "Sneakers",
+        "Casual"
+      ],
+      "price": 2000,
+      "discountPrice": 2000,
       "isBestselling": true,
       "sizes": [
-        { "size": 38, "available": true },
-        { "size": 39, "available": false },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true }
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": false
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        }
       ],
       "gender": "unisex",
       "stockCount": 25,
@@ -45,23 +60,46 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "sku": "CV-CTAS-02-BLK",
       "name": "Converse Chuck Taylor All Star",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Converse",
-      "categories": ["Sneakers"],
-      "price": 2000.0,
-      "discountPrice": 1800.0,
+      "categories": [
+        "Sneakers"
+      ],
+      "price": 2000,
+      "discountPrice": 1800,
       "isBestselling": true,
       "sizes": [
-        { "size": 38, "available": true },
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true }
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
       ],
       "gender": "unisex",
       "stockCount": 100,
@@ -92,23 +130,46 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "sku": "VN-OS-03-BLK",
       "name": "Vans Old Skool",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Vans",
-      "categories": ["Sneakers"],
-      "price": 1000.0,
-      "discountPrice": 950.0,
+      "categories": [
+        "Sneakers"
+      ],
+      "price": 1000,
+      "discountPrice": 950,
       "isBestselling": true,
       "sizes": [
-        { "size": 38, "available": true },
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true }
+        {
+          "size": 38,
+          "available": true
+        },
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        }
       ],
       "gender": "unisex",
       "stockCount": 100,
@@ -139,23 +200,46 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "sku": "AD-UB22-04-GRY",
       "name": "Adidas Ultraboost 22",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Adidas",
-      "categories": ["Sports"],
-      "price": 1200.0,
-      "discountPrice": 1180.0,
-      "isBestselling": true,
+      "categories": [
+        "Sports"
+      ],
+      "price": 1200,
+      "discountPrice": 1180,
+      "isBestselling": false,
       "sizes": [
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true },
-        { "size": 45, "available": true }
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        },
+        {
+          "size": 45,
+          "available": true
+        }
       ],
       "gender": "men",
       "stockCount": 100,
@@ -186,23 +270,46 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "sku": "NK-IRN4-05-WHT",
       "name": "Nike InfinityRN 4",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Nike",
-      "categories": ["Sports"],
-      "price": 1350.0,
-      "discountPrice": 1250.0,
+      "categories": [
+        "Sports"
+      ],
+      "price": 1350,
+      "discountPrice": 1250,
       "isBestselling": false,
       "sizes": [
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true },
-        { "size": 45, "available": true }
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        },
+        {
+          "size": 45,
+          "available": true
+        }
       ],
       "gender": "women",
       "stockCount": 100,
@@ -233,23 +340,46 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "sku": "NB-FCPV5-06-BLK",
       "name": "FuelCell Propel v5",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "New Balance",
-      "categories": ["Sports"],
-      "price": 1250.0,
-      "discountPrice": 1180.0,
+      "categories": [
+        "Sports"
+      ],
+      "price": 1250,
+      "discountPrice": 1180,
       "isBestselling": false,
       "sizes": [
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true },
-        { "size": 45, "available": true }
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        },
+        {
+          "size": 45,
+          "available": true
+        }
       ],
       "gender": "unisex",
       "stockCount": 100,
@@ -280,23 +410,46 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "sku": "CH-CW6-07-BRN",
       "name": "Colville 6\" Waterproof Insulated Lace Up",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Chippewa",
-      "categories": ["Boots"],
-      "price": 1180.0,
-      "discountPrice": 1160.0,
+      "categories": [
+        "Boots"
+      ],
+      "price": 1180,
+      "discountPrice": 1160,
       "isBestselling": false,
       "sizes": [
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true },
-        { "size": 45, "available": true }
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        },
+        {
+          "size": 45,
+          "available": true
+        }
       ],
       "gender": "men",
       "stockCount": 100,
@@ -327,23 +480,46 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "sku": "TB-P6B-08-BRN",
       "name": "Timberland Premium 6-inch Boot",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Timberland",
-      "categories": ["Boots"],
-      "price": 1180.0,
-      "discountPrice": 1160.0,
+      "categories": [
+        "Boots"
+      ],
+      "price": 1180,
+      "discountPrice": 1160,
       "isBestselling": false,
       "sizes": [
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true },
-        { "size": 45, "available": true }
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        },
+        {
+          "size": 45,
+          "available": true
+        }
       ],
       "gender": "unisex",
       "stockCount": 100,
@@ -374,23 +550,46 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "sku": "CH-CW15-09-SNK",
       "name": "Cottonwood 15\" Women's Snake",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Chippewa",
-      "categories": ["Boots"],
-      "price": 1180.0,
-      "discountPrice": 1160.0,
+      "categories": [
+        "Boots"
+      ],
+      "price": 1180,
+      "discountPrice": 1160,
       "isBestselling": false,
       "sizes": [
-        { "size": 39, "available": true },
-        { "size": 40, "available": true },
-        { "size": 41, "available": true },
-        { "size": 42, "available": true },
-        { "size": 43, "available": true },
-        { "size": 44, "available": true },
-        { "size": 45, "available": true }
+        {
+          "size": 39,
+          "available": true
+        },
+        {
+          "size": 40,
+          "available": true
+        },
+        {
+          "size": 41,
+          "available": true
+        },
+        {
+          "size": 42,
+          "available": true
+        },
+        {
+          "size": 43,
+          "available": true
+        },
+        {
+          "size": 44,
+          "available": true
+        },
+        {
+          "size": 45,
+          "available": true
+        }
       ],
       "gender": "women",
       "stockCount": 100,
@@ -421,14 +620,16 @@
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "sku": "GC-HL-10-BLK",
       "name": "Gucci Horsebit Loafers",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Gucci",
-      "categories": ["Official"],
-      "price": 1100.0,
-      "discountPrice": 1050.0,
+      "categories": [
+        "Official"
+      ],
+      "price": 1100,
+      "discountPrice": 1050,
       "isBestselling": false,
       "sizes": [
         {
@@ -489,14 +690,16 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "sku": "ND-FBL-11-BRN",
       "name": "Foster Bit Loafer (Men)",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "NORDSTORM",
-      "categories": ["Official"],
-      "price": 1100.0,
-      "discountPrice": 1050.0,
+      "categories": [
+        "Official"
+      ],
+      "price": 1100,
+      "discountPrice": 1050,
       "isBestselling": false,
       "sizes": [
         {
@@ -557,14 +760,16 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "sku": "FF-FER-12-BLK",
       "name": "Ferragamo",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "FARFETCH",
-      "categories": ["Official"],
-      "price": 1300.0,
-      "discountPrice": 1250.0,
+      "categories": [
+        "Official"
+      ],
+      "price": 1300,
+      "discountPrice": 1250,
       "isBestselling": false,
       "sizes": [
         {
@@ -597,7 +802,7 @@
         }
       ],
       "gender": "women",
-      "stockCount": 100,
+      "stockCount": 150,
       "images": [
         "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149068_1000.jpg",
         "https://cdn-images.farfetch-contents.com/20/15/78/97/20157897_50149069_1000.jpg",
@@ -625,32 +830,18 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "sku": "AD-AS-13-BLK",
       "name": "Adidas Adilette Slides",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Adidas",
-      "categories": ["Slippers"],
-      "price": 1150.0,
-      "discountPrice": 1140.0,
+      "categories": [
+        "Slippers"
+      ],
+      "price": 1150,
+      "discountPrice": 1140,
       "isBestselling": false,
       "sizes": [
-        {
-          "size": 38,
-          "available": true
-        },
-        {
-          "size": 39,
-          "available": true
-        },
-        {
-          "size": 40,
-          "available": true
-        },
-        {
-          "size": 41,
-          "available": true
-        },
         {
           "size": 42,
           "available": true
@@ -693,14 +884,16 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "sku": "NB-FFRS-14-BLK",
       "name": "Fresh Foam RCVRY Slide",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "New Balance",
-      "categories": ["Slippers"],
-      "price": 1350.0,
-      "discountPrice": 1250.0,
+      "categories": [
+        "Slippers"
+      ],
+      "price": 1350,
+      "discountPrice": 1250,
       "isBestselling": false,
       "sizes": [
         {
@@ -761,14 +954,16 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "sku": "BK-BE-15-BRN",
       "name": "Barbados Essentials",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "BIRKENSTOCK",
-      "categories": ["Slippers"],
-      "price": 1450.0,
-      "discountPrice": 1140.0,
+      "categories": [
+        "Slippers"
+      ],
+      "price": 1450,
+      "discountPrice": 1140,
       "isBestselling": false,
       "sizes": [
         {
@@ -829,14 +1024,16 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "sku": "PU-RSX-16-BLK",
       "name": "Puma RS-X Bold JR",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium pariatur voluptates quasi aspernatur. Dolores commodi a ab odit recusandae earum magni temporibus. Similique voluptatum hic! Repudiandae nulla praesentium eius suscipit.",
       "brand": "Puma",
-      "categories": ["Children"],
-      "price": 1120.0,
-      "discountPrice": 1100.0,
+      "categories": [
+        "Children"
+      ],
+      "price": 1120,
+      "discountPrice": 1100,
       "isBestselling": false,
       "sizes": [
         {

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Bell, X, AlertTriangle, CheckCircle, Package, Truck, Clock, RefreshCcw, XCircle } from "lucide-react";
+import { Bell, X, AlertTriangle, CheckCircle, Package, Truck, Clock, RefreshCcw, XCircle, Home } from "lucide-react";
 import useOrderStore from "../stores/OrdersStore";
 
+// Define notification types with their respective icons and colors
 // Define notification types with their respective icons and colors
 const notificationTypes = {
   order: { icon: Package, bgColor: "bg-blue-50", iconColor: "text-blue-500", borderColor: "border-blue-100" },
@@ -10,8 +11,8 @@ const notificationTypes = {
   alert: { icon: AlertTriangle, bgColor: "bg-yellow-50", iconColor: "text-yellow-500", borderColor: "border-yellow-100" },
   cancelled: { icon: XCircle, bgColor: "bg-red-50", iconColor: "text-red-500", borderColor: "border-red-100" },
   returned: { icon: RefreshCcw, bgColor: "bg-gray-50", iconColor: "text-gray-500", borderColor: "border-gray-100" },
+  delivered: { icon: Home, bgColor: "bg-emerald-50", iconColor: "text-emerald-500", borderColor: "border-emerald-100" },
 };
-
 const NotificationsSection = () => {
   const { notifications, clearNotifications, removeNotification } = useOrderStore();
   const [filter, setFilter] = useState("all");

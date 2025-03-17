@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useOrderStore from '../stores/OrdersStore';
-import useProductStore from '../stores/productStore';
+import useProductManagementStore from '../stores/ProductManagementStore';
 import OrderList from '../admin/OrderList';
 import OrderDetails from '../admin/OrderDetails';
 import Dashboard from '../admin/Dashboard';
 import Notifications from '../admin/Notifications';
+import ProductsManager from '../admin/ProductManager';
 import { 
   Home, 
   Package, 
@@ -23,7 +24,7 @@ const AdminPanel = () => {
   const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
   const { orders, notifications, clearNotifications } = useOrderStore();
-  const { fetchProducts } = useProductStore();
+  const { fetchProducts } = useProductManagementStore();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -48,8 +49,8 @@ const AdminPanel = () => {
   const navigation = [
     { name: 'Dashboard', icon: Home, tab: 'dashboard', count: null },
     { name: 'Orders', icon: Package, tab: 'orders', count: orders.length },
-    { name: 'Notifications', icon: Bell, tab: 'notifications', count: notifications.length },
     { name: 'Products', icon: ShoppingBag, tab: 'products', count: null },
+    { name: 'Notifications', icon: Bell, tab: 'notifications', count: notifications.length },
     { name: 'Customers', icon: Users, tab: 'customers', count: null },
     { name: 'Reports', icon: BarChart, tab: 'reports', count: null },
     { name: 'Settings', icon: Settings, tab: 'settings', count: null },
@@ -257,13 +258,7 @@ const AdminPanel = () => {
                   {activeTab === 'orders' && <OrderList onOrderSelect={handleOrderSelect} />}
                   {activeTab === 'orderDetails' && <OrderDetails orderId={selectedOrderId} onBack={() => setActiveTab('orders')} />}
                   {activeTab === 'notifications' && <Notifications onClear={clearNotifications} onOrderSelect={handleOrderSelect} />}
-                  {activeTab === 'products' && (
-                    <div className="text-center py-12">
-                      <ShoppingBag size={48} className="mx-auto text-gray-400 mb-4" />
-                      <h3 className="text-lg font-medium text-gray-900">Products Management</h3>
-                      <p className="mt-2 text-sm text-gray-500">This feature is coming soon.</p>
-                    </div>
-                  )}
+                  {activeTab === 'products' && <ProductsManager />}
                   {activeTab === 'customers' && (
                     <div className="text-center py-12">
                       <Users size={48} className="mx-auto text-gray-400 mb-4" />

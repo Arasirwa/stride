@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import {
-  Search,
-  User,
-  ShoppingBag,
-  Menu,
-  X,
-  SheetIcon,
-  ShieldIcon,
-} from "lucide-react";
+import { Search, User, ShoppingBag, Menu, X, ShieldIcon } from "lucide-react";
 import useProductStore from "../stores/productStore";
 import useCartStore from "../stores/cartStore";
 import useOrderStore from "../stores/OrdersStore";
@@ -19,6 +11,7 @@ const Header = () => {
   const setSearchQuery = useProductStore((state) => state.setSearchQuery);
   const cart = useCartStore((state) => state.cart);
   const notifications = useOrderStore((state) => state.notifications);
+  const orders = useOrderStore((state) => state.orders);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -121,7 +114,7 @@ const Header = () => {
             >
               <ShieldIcon size={26} />
               <span className="absolute -top-2 -right-2 bg-accent-500 text-white rounded-full text-sm w-6 h-6 flex items-center justify-center">
-                {}
+                {orders.length || notifications.length}
               </span>
             </NavLink>
           </div>
