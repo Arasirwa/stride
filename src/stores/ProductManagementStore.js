@@ -1,79 +1,50 @@
 import { create } from 'zustand';
-
-const API_URL = 'http://localhost:8000/products';
+import * as productsService from '../services/productsService';
 
 const useProductManagementStore = create((set, get) => ({
   products: [],
   isLoading: false,
   error: null,
-  
+
   // Fetch all products
   fetchProducts: async () => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch(API_URL);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const products = await response.json();
+      const products = await productsService.listProducts();
       set({ products, isLoading: false });
     } catch (error) {
       console.error('Error fetching products:', error);
       set({ error: 'Failed to fetch products', isLoading: false });
     }
   },
-  
+
   // Get a single product by ID
   getProduct: (id) => {
     return get().products.find(product => product.id === id);
   },
-  
+
   // Add a new product
   addProduct: async (product) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      
-      const newProduct = await response.json();
-      set(state => ({ 
+      const newProduct = await productsService.createProduct(product);
+      set(state => ({
         products: [...state.products, newProduct],
-        isLoading: false 
+        isLoading: false
       }));
     } catch (error) {
       console.error('Error adding product:', error);
       set({ error: 'Failed to add product', isLoading: false });
     }
   },
-  
+
   // Update an existing product
   updateProduct: async (id, updatedData) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData),
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      
-      const updatedProduct = await response.json();
+      const updatedProduct = await productsService.updateProduct(id, updatedData);
       set(state => ({
-        products: state.products.map(product => 
+        products: state.products.map(product =>
           product.id === id ? updatedProduct : product
         ),
         isLoading: false
@@ -83,19 +54,12 @@ const useProductManagementStore = create((set, get) => ({
       set({ error: 'Failed to update product', isLoading: false });
     }
   },
-  
+
   // Delete a product
   deleteProduct: async (id) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: 'DELETE',
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      
+      await productsService.deleteProduct(id);
       set(state => ({
         products: state.products.filter(product => product.id !== id),
         isLoading: false

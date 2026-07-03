@@ -79,7 +79,7 @@ const Home = () => {
             },
           }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop={heroSlides.length > 1}
+          rewind={heroSlides.length > 1}
           className="h-full w-full"
         >
           {heroSlides.map((product, index) => (

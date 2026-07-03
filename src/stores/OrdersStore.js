@@ -2,6 +2,11 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import useCartStore from "./cartStore";
 
+const generateNotificationId = () =>
+  typeof crypto !== "undefined" && crypto.randomUUID
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
 const useOrderStore = create(
   persist(
     (set, get) => ({
@@ -47,6 +52,7 @@ const useOrderStore = create(
           notifications: [
             ...state.notifications,
             {
+              id: generateNotificationId(),
               orderId: newOrder.id,
               message: initialStatus === "Payment Confirmed"
                 ? `New order #${newOrder.id} has been placed and paid.`
@@ -96,6 +102,7 @@ const useOrderStore = create(
             notifications: [
               ...state.notifications,
               {
+                id: generateNotificationId(),
                 orderId,
                 message: `Order #${orderId} is now ${status}.${note ? ` Note: ${note}` : ''}`,
                 timestamp,
@@ -131,17 +138,12 @@ const useOrderStore = create(
       },
 
       // Mark notification as read
-      markNotificationAsRead: (index) => {
-        set((state) => {
-          const updatedNotifications = [...state.notifications];
-          if (updatedNotifications[index]) {
-            updatedNotifications[index] = {
-              ...updatedNotifications[index],
-              isRead: true
-            };
-          }
-          return { notifications: updatedNotifications };
-        });
+      markNotificationAsRead: (id) => {
+        set((state) => ({
+          notifications: state.notifications.map((notification) =>
+            notification.id === id ? { ...notification, isRead: true } : notification
+          )
+        }));
       },
 
       // Mark all notifications as read
@@ -156,12 +158,10 @@ const useOrderStore = create(
       },
       
       // Remove notification
-      removeNotification: (index) => {
-        set((state) => {
-          const updatedNotifications = [...state.notifications];
-          updatedNotifications.splice(index, 1);
-          return { notifications: updatedNotifications };
-        });
+      removeNotification: (id) => {
+        set((state) => ({
+          notifications: state.notifications.filter((notification) => notification.id !== id)
+        }));
       },
 
       // Clear all notifications
@@ -182,7 +182,18 @@ const useOrderStore = create(
       getShippingNotifications: () => get().notifications.filter(notification => notification.type === "shipping"),
       getOrderNotifications: () => get().notifications.filter(notification => notification.type === "order")
     }),
-    { name: "order-store" }
+    {
+      name: "order-store",
+      // Backfill ids for notifications persisted before ids existed, so
+      // markNotificationAsRead/removeNotification can target them by id.
+      merge: (persistedState, currentState) => {
+        const merged = { ...currentState, ...persistedState };
+        merged.notifications = (merged.notifications || []).map((notification) =>
+          notification.id ? notification : { ...notification, id: generateNotificationId() }
+        );
+        return merged;
+      }
+    }
   )
 );
 

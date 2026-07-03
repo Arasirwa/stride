@@ -70,7 +70,7 @@ const Notifications = ({ onOrderSelect }) => {
   };
   
   const handleViewOrder = (notification) => {
-    markNotificationAsRead(notifications.indexOf(notification));
+    markNotificationAsRead(notification.id);
     if (onOrderSelect && notification.orderId) {
       onOrderSelect(notification.orderId);
     }
@@ -163,9 +163,9 @@ const Notifications = ({ onOrderSelect }) => {
       {/* Notifications List */}
       {filteredNotifications.length > 0 ? (
         <div className="space-y-3">
-          {filteredNotifications.map((notification, index) => (
-            <div 
-              key={index} 
+          {filteredNotifications.map((notification) => (
+            <div
+              key={notification.id}
               className={`p-3 rounded-lg border ${
                 notification.isRead 
                   ? 'bg-white border-gray-200' 
@@ -203,7 +203,7 @@ const Notifications = ({ onOrderSelect }) => {
                     )}
                     
                     <button
-                      onClick={() => removeNotification(index)}
+                      onClick={() => removeNotification(notification.id)}
                       className="text-xs text-gray-500 hover:text-gray-700"
                     >
                       Dismiss

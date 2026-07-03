@@ -145,13 +145,13 @@ const NotificationsSection = () => {
         </div>
       ) : (
         <div className="space-y-3">
-          {filteredNotifications.map((notification, index) => {
+          {filteredNotifications.map((notification) => {
             const type = getNotificationType(notification);
             const { icon: IconComponent, bgColor, iconColor, borderColor } = notificationTypes[type];
 
             return (
               <div
-                key={index}
+                key={notification.id}
                 className={`p-4 border rounded-lg ${bgColor} ${borderColor} flex items-start gap-3 hover:shadow-sm transition-shadow`}
               >
                 <div className={`mt-0.5 rounded-full p-2 ${iconColor} bg-white`}>
@@ -161,7 +161,7 @@ const NotificationsSection = () => {
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <p className="font-medium text-secondary-800">{notification.message}</p>
-                    <button onClick={() => removeNotification(index)} className="text-gray-400 hover:text-gray-600">
+                    <button onClick={() => removeNotification(notification.id)} className="text-gray-400 hover:text-gray-600">
                       <X size={14} />
                     </button>
                   </div>

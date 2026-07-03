@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { listProducts } from "../services/productsService";
 
 const useProductStore = create((set, get) => ({
   products: [],
@@ -14,16 +15,12 @@ const useProductStore = create((set, get) => ({
   sortOption: "featured",
   searchQuery: "",
 
-  // Fetch products using fetch()
+  // Fetch products via the products service (mock adapter or real backend)
   fetchProducts: async () => {
     set({ isLoading: true, error: null });
 
     try {
-      const response = await fetch("http://localhost:8000/products"); // Update API endpoint as needed
-      if (!response.ok) {
-        throw new Error("Failed to load products");
-      }
-      const data = await response.json();
+      const data = await listProducts();
       set({ products: data, filteredProducts: data });
     } catch (err) {
       set({ error: err.message });
